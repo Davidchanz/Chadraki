@@ -1,0 +1,18 @@
+<div class="board" [style.height]="size*cellSize+'px'" [style.width]="size*cellSize+'px'">
+  @for(cell_i of line; track cell_i; let i = $index;){
+    @for(cell_j of line; track cell_j; let j = $index;){
+      <div class="piece">
+        <img (click)="onCellClick()" style="position: absolute" [src]="getCell(j, i).path" [width]="cellSize" [style.transform]="'translate('+j*cellSize+'px, '+i*cellSize+'px)'" >
+        @if(isPiece(j, i)){
+          @if(isKing(j, i)){
+            <img [style.display]="isCheck(j, i)" style="position: absolute" src="../assets/check.png" [height]="cellSize" [style.transform]="'translate('+j*cellSize+'px, '+i*cellSize+'px)'" >
+          }
+          <img (click)="onPieceMove(j, i)" style="position: absolute" [src]="getPiece(j, i).path" [height]="cellSize-15" [style.transform]="'translate('+j*cellSize+'px, '+i*cellSize+'px)'" >
+        }
+        @if(isDot(j, i)){
+          <img (click)="onDotClick(j, i)" style="position: absolute" [src]="getDot(j, i)" [height]="cellSize-15" [style.transform]="'translate('+j*cellSize+'px, '+i*cellSize+'px)'" >
+        }
+      </div>
+    }
+  }
+</div>

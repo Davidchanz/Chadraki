@@ -1,5 +1,9 @@
-#container {
-  padding: 3%;
+.board {
+  position: relative;
+}
+
+.piece {
+  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
