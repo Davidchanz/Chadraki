@@ -7,10 +7,10 @@
           @if(isKing(j, i)){
             <img [style.display]="isCheck(j, i)" style="position: absolute" src="../assets/check.png" [height]="cellSize" [style.transform]="'translate('+j*cellSize+'px, '+i*cellSize+'px)'" >
           }
-          <img (click)="onPieceMove(j, i)" style="position: absolute" [src]="getPiece(j, i).path" [height]="cellSize-15" [style.transform]="'translate('+j*cellSize+'px, '+i*cellSize+'px)'" >
+          <img [id]="i+'_'+j" class="piece-img" (click)="onPieceClick(j, i)" style="position: absolute" [src]="getPiece(j, i).path" [height]="cellSize-15" [style.transform]="'translate('+j*cellSize+'px, '+i*cellSize+'px)'" >
         }
         @if(isDot(j, i)){
-          <img (click)="onDotClick(j, i)" style="position: absolute" [src]="getDot(j, i)" [height]="cellSize-15" [style.transform]="'translate('+j*cellSize+'px, '+i*cellSize+'px)'" >
+          <img class="dot" [style.display]="dotShowHide" (click)="onDotClick(j, i, $event.target)" style="position: absolute" [src]="getDot(j, i).path" [height]="cellSize-15" [style.transform]="'translate('+j*cellSize+'px, '+i*cellSize+'px)'" >
         }
       </div>
     }

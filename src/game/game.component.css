@@ -7,4 +7,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 2s ease-in-out;
+}
+
+.piece-img {
+  transition: all .3s ease-in-out;
+  z-index: 10;
+}
+
+.dot {
+  z-index: 20;
 }
